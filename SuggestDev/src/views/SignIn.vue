@@ -1,22 +1,41 @@
 <template>
-<h1>Login</h1>
-<p><input type="text" placeholder ="Email" v-model="email"/> </p>
-<p><input type="password" placeholder ="Password" v-model="password"/> </p>
-<p v-if="errorMessage">{{errorMessage}}</p>
-<p><button @click="register"> Submit </button> </p>
-<p><button @click="signInWithGoogle"> Sign In With Google </button> </p>
+<div class="row d-flex justify-content-center container">
+    <div class="col-md-6">
+    <form>
+        <h3>Login</h3>
+        <MDBInput label="Email" type="email" v-model="email"></MDBInput>
+        <MDBInput label="Password" type="password" v-model="password"></MDBInput>
+        <MDBBtn @click="login" color="primary" rounded> Login </MDBBtn>
+        <MDBBtn @click="signInWithGoogle" color="primary" rounded> Sign In With Google</MDBBtn>
+    </form>
+    </div>
+
+
+</div>
 </template>
 
+<script>
+  import { MDBBtn, MDBInput } from "mdb-vue-ui-kit";
+  export default {
+    components: {
+      MDBBtn,
+      MDBInput
+    }
+  };
+</script>
+
 <script setup>
+
     import {ref} from "vue";
     import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
     import {useRouter} from 'vue-router'
+    
     const email = ref("");
     const password = ref("");
     const router = useRouter()
     const errorMessage = ref()
 
-    const register = () => {
+    const login = () => {
         const auth = getAuth()
         signInWithEmailAndPassword(auth, email.value, password.value)
             .then((data) => {

@@ -7,6 +7,9 @@
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
+    "bootstrap": "^5.2.0",
+    "firebase": "^9.9.0",
+    "mdb-vue-ui-kit": "^2.0.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.2"
   },

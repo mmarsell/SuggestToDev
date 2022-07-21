@@ -1,4 +1,5 @@
 <template>
+<div>
   <nav>
     <RouterLink to="/"> Home </RouterLink>
     <RouterLink to="/register"> Register </RouterLink>
@@ -6,8 +7,13 @@
     <button @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
   </nav>
   <RouterView />
+</div>
 </template>
-
+<style>
+      #app {
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+      }
+</style>
 <script setup>
 import {onMounted, ref} from "vue";
 import {getAuth, onAuthStateChanged, signOut} from "firebase/auth";

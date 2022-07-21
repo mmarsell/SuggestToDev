@@ -3,13 +3,11 @@ import App from './App.vue'
 import router from './router'
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import 'mdb-vue-ui-kit/css/mdb.min.css';
+import './assets/main.css'
 
 
-const app = createApp(App)
 
-app.use(router)
-
-app.mount('#app')
 
 const firebaseConfig = {
   apiKey: "AIzaSyA6DX7aw0p8kG9tnO2AfhGgxhV5deYpvRk",
@@ -24,3 +22,9 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 
 const analytics = getAnalytics(firebaseApp);
+
+const app = createApp(App)
+
+app.use(router)
+
+app.mount('#app')
